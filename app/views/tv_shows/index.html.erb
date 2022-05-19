@@ -6,11 +6,13 @@
 <h3>Ingrese una serie o película nueva</h3>
 
 <%= form_with model: TvShow.new do |form| %>
-    <%= form.text_field :name %><br>
-    <%= form.text_area :summary %><br>
-    <%= form.date_field :release_date %><br>
-    <%= form.number_field :rating, step: '0.1' %><br>
-    <%= form.submit  "Enviar" %>
+   <br> <%= form.text_field :name %><br><br>
+    <%= form.text_area :summary %><br><br>
+    <%= form.date_field :release_date %><br><br>
+    <%= form.number_field :rating, step: '0.1' %><br><br>
+    <%= form.submit  "Enviar" %><br><br>
+
+    
 <% end %>
 
 
@@ -20,3 +22,5 @@
 
 
 <%= link_to 'go to series list', tv_shows_path %>
+
+
