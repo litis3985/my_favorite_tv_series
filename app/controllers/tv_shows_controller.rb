@@ -1,6 +1,6 @@
 class TvShowsController < ApplicationController
   def index
-    @search = params[:query]
+    
   end
   def create
     @tv_show = TvShow.new(tv_show_params)
