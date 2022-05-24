@@ -1,26 +1,38 @@
+<p id="notice"><%= notice %></p>
 
+<h1>Tv Shows</h1>
 
-<%= link_to 'go back to welcome page', welcome_path %>
-<h1>My Favorite TV Series</h1>
+<table class="table table-hover table-dark">
+  <thead>
+    <tr>
+      
+      <th scope="col">Nombre</th>
+      <th scope="col">Resumen</th>
+      <th scope="col">Lanzamiento</th>
+      <th scope="col">Clasificacion</th>
+    </tr>
+  </thead>
+   <tbody>
+   
+    <% @tv_shows.each do |tv_show| %>
+      <tr>
+        <td><%= tv_show.name %></td>
+        <td><%= tv_show.summary %></td>
+        <td><%= tv_show.release_date %></td>
+        <td><%= tv_show.rating %></td>
+        <td><%= link_to 'Show', tv_show_path(tv_show) %></td>
+        <td><%= link_to 'Edit', edit_tv_show_path(tv_show) %></td>
+        <td><%= link_to 'Destroy', tv_show, method: :delete, data: { confirm: '¿Estás seguro?' } %></td>
+        
+      </tr>
+      
+    <% end %>
+  </tbody>
+ 
 
-<h3>Ingrese una serie o película nueva</h3>
+</table>
 
-<%= form_with model: TvShow.new do |form| %>
-   <br> <%= form.text_field :name %><br><br>
-    <%= form.text_area :summary %><br><br>
-    <%= form.date_field :release_date %><br><br>
-    <%= form.number_field :rating, step: '0.1' %><br><br>
-    <%= form.submit  "Enviar" %><br><br>
+<br>
 
-    
-<% end %>
-
-
-<p>Welcome!!</p>
-
-
-
-
-<%= link_to 'go to series list', tv_shows_path %>
-
+<%= link_to 'New Tv Show', new_tv_show_path %>
 
